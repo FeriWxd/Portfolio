@@ -24,11 +24,7 @@ const Swipper = () => {
 
     const animate = () => {
       if (container) {
-        if (direction === "right") {
-          container.scrollLeft += 1;
-        } else {
-          container.scrollLeft -= 1;
-        }
+        container.scrollLeft += direction === "right" ? 1 : -1;
 
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft = 0;
@@ -50,14 +46,10 @@ const Swipper = () => {
       <div className="swipper-glow-left"></div>
       <div className="swipper-glow-right"></div>
 
-      <div
-        className="swipper-container"
-        ref={containerRef}
-      >
+      <div className="swipper-container" ref={containerRef}>
         <div className="swipper-track">
           {[...Array(2)].map((_, i) => (
             <React.Fragment key={i}>
-              <div className="swipper-card">Coming Soon...</div>
               <div className="swipper-card">Coming Soon...</div>
               <div className="swipper-card">Coming Soon...</div>
 
@@ -75,6 +67,19 @@ const Swipper = () => {
                     frameBorder="0"
                     allowFullScreen
                   ></iframe>
+                </div>
+              </div>
+
+              {/* Yeni eklenen tıklanabilir kart (iframe yerine) */}
+              <div
+                className="swipper-card clickable-card"
+                onClick={() =>
+                  window.open("https://user-information-eosin.vercel.app", "_blank")
+                }
+              >
+                <div className="card-content">
+                  <h2>User Info App</h2>
+                  <p>Click to open the user information project</p>
                 </div>
               </div>
             </React.Fragment>
