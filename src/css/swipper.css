@@ -1,0 +1,136 @@
+/* === Swipper.css === */
+
+/* Dış kapsayıcı - glow efektleri için relative */
+.swipper-outer-wrapper {
+  position: relative;
+}
+
+/* Sol ışık efekti */
+.swipper-glow-left,
+.swipper-glow-right {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.swipper-glow-left {
+  left: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.swipper-glow-right {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+/* Swipper dış kapsayıcı */
+.swipper-container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: #f6f6f6;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.swipper-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track (iç alan) */
+.swipper-track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Kartlar */
+.swipper-card {
+  flex: 0 0 auto;
+  width: 634.59px;
+  height: 441.59px;
+  margin: 0 10px;
+  background-color: rgba(253, 165, 0, 0.6);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  user-select: none;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swipper-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* İframe kartı özel sınıfı */
+.iframe-card {
+  /* background-color: rgba(255, 255, 255, 0.8); Hafif beyaz arka plan */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom right, #bfdbfe, #ffffff);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* İframe sarmalayıcı - içerik ortalanmış ve küçültülmüş */
+.iframe-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* İframe içeriği küçültülüyor */
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);          /* %80 boyut */
+  transform-origin: center center;
+  pointer-events: auto;
+  border: none;
+}
+.iframe-wrapper iframe {
+  pointer-events: none; /* Böylece iframe tıklanamaz olur */
+}
+
+/* ✅ Responsive Breakpoints */
+
+@media (max-width: 1024px) {
+  .swipper-card {
+    width: 450px;
+    height: 320px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .swipper-card {
+    width: 320px;
+    height: 240px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swipper-card {
+    width: 260px;
+    height: 180px;
+    font-size: 16px;
+  }
+}

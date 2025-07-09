@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 0 1rem;
+  text-align: center;
+  user-select: none;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: black;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.4;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 12px 30px;
+  background: #ff7f50; /* turuncu */
+  border: 1px solid #ff7f50;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 50px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: all 0.8s ease;
+  font-size: 1.1rem;
+  user-select: none;
+  display: inline-block;
+  margin: 0; /* margin kaldırıldı, gap kullanılıyor */
+}
+
+.button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #121212; /* siyah */
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.8s ease;
+}
+
+.button:hover {
+  color: #ff7f50; /* turuncu */
+  background: #121212; /* siyah */
+  border-color: #121212;
+  transition: all 0.8s ease;
+}
+
+.button:hover::after {
+  bottom: 0;
+  border-radius: 0;
+  transition: all 0.8s ease;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  .button {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  .button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
